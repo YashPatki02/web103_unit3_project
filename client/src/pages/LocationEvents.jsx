@@ -1,10 +1,36 @@
 import React, { useState, useEffect } from 'react'
 import Event from '../components/Event'
 import '../css/LocationEvents.css'
+import LocationsAPI from '../services/LocationsAPI'
+import EventsAPI from '../services/EventsAPI'
 
 const LocationEvents = ({index}) => {
-    const [location, setLocation] = useState([])
+    const [location, setLocation] = useState({})
     const [events, setEvents] = useState([])
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const locationsData = await LocationsAPI.getLocationById(index)
+                setLocation(locationsData)
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }) ()
+    }, [])
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const eventsData = await EventsAPI.getEventsByLocation(index)
+                setEvents(eventsData)
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }) ()
+    }, [])
 
     return (
         <div className='location-events'>
@@ -25,7 +51,7 @@ const LocationEvents = ({index}) => {
                         <Event
                             key={event.id}
                             id={event.id}
-                            title={event.title}
+                            description={event.description}
                             date={event.date}
                             time={event.time}
                             image={event.image}
