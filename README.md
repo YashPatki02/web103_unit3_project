@@ -32,7 +32,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
-
+![Video Walkthrough](video-walkthrough.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with LICEcap.
