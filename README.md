@@ -1,4 +1,4 @@
-# WEB103 Project 3 - *Virtual Community Tours*
+# WEB103 Project 3 - *Virtual Community Concerts*
 
 Submitted by: **Yash Patki**
 
